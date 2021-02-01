@@ -394,6 +394,7 @@ h3.title2{
         }
         &.b_no{
           background:#fff url(../images/b_no.png) no-repeat center center;
+          margin-right: 0;
           &.hover,&:checked,&:focus{
             background:#fff url(../images/b_no_.png) no-repeat center center;
             border-color: #fc0404;
@@ -648,6 +649,11 @@ h3.title2{
         margin-bottom: 24px;
         align-items: center;
         box-shadow: 0 0 8px rgba(39,29,4,0.1);
+        @include screen('mobile') {
+          &:nth-child(n+5){
+            display: none;
+          }
+        }
         &:last-child:nth-child(4n - 1) {
           margin-right: calc(22% + 12% / 3);
           @include screen('tablet') {
@@ -720,8 +726,26 @@ h3.title2{
           z-index: 10;
           color: $color-word;
           font-size: 1.125rem;
-
         }
+      }
+      &.active{
+        label{
+          @include screen('mobile') {
+            &:nth-child(n+5){
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+    .count_more{
+      display: none;
+      @include screen('mobile') {
+        display: block;
+        background: transparent;
+        border: 0;
+        margin-top: -6px;
+        margin-bottom: 1rem;
       }
     }
     .btn_grp.count_add{

@@ -321,14 +321,12 @@ $(function() {
           if (ww >= wwSmall && $(this).scrollTop() > stickyMenuTop) {
             $('.header').addClass('fixed');
             $('.header').css('margin-top', -1 * customHeight);
-                // $('.main').css('margin-top', headerHeight);
-                // $('.main').css('margin-top', 0);
-              } else {
-                $('.header').removeClass('fixed');
-                $('.header').css('margin-top', 0);
-                $('.main').css('margin-top', 0);
-              }
-            });
+          } else {
+            $('.header').removeClass('fixed');
+            $('.header').css('margin-top', 0);
+            $('.main').css('margin-top', 0);
+          }
+        });
       }
       if ($('header .megamenu').length > 0) {
         var stickyMenuTop2 = Math.floor($('header .megamenu').offset().top);
