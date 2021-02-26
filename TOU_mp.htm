@@ -13,9 +13,12 @@
   <!-- slick css-->
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css" />
+  <!-- fancybox css-->
+  <link rel="stylesheet" type="text/css" href="vendor/facybox/dist/jquery.fancybox.min.css"/>
   <!-- hyUI css -->
-  <link rel="stylesheet" href="css/taipower.css">
-  <link rel="stylesheet" href="vendor/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/taipower.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animate.css">
+
   <!-- favicon -->
   <link href="images/favicon.png" rel="icon" type="image/x-icon">
 </head>
@@ -100,7 +103,7 @@
         <div class="container">
           <h2>推廣<br>訊息</h2>
           <div class="text">
-            <a href="">新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊</a>
+            <a href="table1.html" class="iframe">新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊</a>
           </div>
         </div>
       </section>
@@ -354,6 +357,7 @@
   <script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
   <script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
   <script src="vendor/scrolltable/jquery.scroltable.min.js"></script><!-- scrolltable -->
+  <script src="vendor/facybox/dist/jquery.fancybox.min.js"></script>
   <!-- hyUI -->
   <script src="js/hyui.js"></script>
   <!-- 客製js -->
@@ -371,6 +375,18 @@
     )
     wow.init();
   </script>
+  <script>
+    $(document).ready(function() {
+      $(".iframe").fancybox({
+        'width'       : '75%',
+        'height'      : '75%',
+        'autoScale'       : false,
+        'transitionIn'    : 'none',
+        'transitionOut'   : 'none',
+        'type'        : 'iframe'
+      });
+    });
+  </script>  
 </body>
 
 </html>

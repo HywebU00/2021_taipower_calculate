@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: #f6f2e6;
+  background: #f6f2e6 url(../images/bg.png) repeat center 0;
   &.noscroll {
     position: static !important;
     width: 100%;
@@ -198,7 +198,7 @@ h3.title2{
   &:before{
     content: "";
     width: 100%;
-    height: 140px;
+    height: 170px;
     background: url(../images/category_bg.png) no-repeat center 0;
     left: 0;
     top: -48px;
@@ -209,9 +209,13 @@ h3.title2{
     @include li-reset;
     position: relative;
     overflow: hidden;
-    padding: 5px 60px;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
     @include screen('tablet') {
       padding: 5px 0;
+      flex-wrap:wrap;
     }
     &:before,&:after{
       content: "";
@@ -230,18 +234,35 @@ h3.title2{
     }
     li{
       float: left;
-      line-height: 3em;
-      width: 25%;
-      @include screen('mobile') {
-        width: 50%;
+      width: 19.5%;
+      @include screen('tablet') {
+        width: 49%;
+        margin-bottom: 0.5rem;
+        &:last-child{
+          width: 100%;
+        }
       }
       a{
         display: block;
+        height: 100%;
         color: $color-word;
         text-align: center;
-        font-weight: bold;
+        padding: 10px;
+        background: url(../images/tab_bg.png) no-repeat center center;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: .8125rem;
+        line-height: 140%;
+        span{
+          display: block;
+          font-size: 1.125rem;
+          font-weight: bold;
+          margin-top: 3px;
+        }
         &.active{
-          background: url(../images/tab_bg.png) no-repeat center center;
+          background: url(../images/tab_bg_.png) no-repeat center center;
           background-size: 100% 100%;
           color: #fff;
           &:hover,&:focus{
@@ -409,12 +430,14 @@ h3.title2{
       }
     }
     .b_catering,.b_fashion,.b_beauty,.b_other{
-      width: 130px;
-      height: 130px;
+      width: 150px;
+      height: 150px;
       display: block;
-      border-radius: 5px;
-      box-shadow: 0 0 8px rgba(39,29,4,.2);
-      background: #fff;
+      // border-radius: 5px;
+      box-shadow: none;
+      // box-shadow: 0 0 8px rgba(39,29,4,.2);
+      
+      
       position: relative;
       @include screen('xs_mobile') {
         margin-bottom: 1rem;
@@ -429,13 +452,18 @@ h3.title2{
         height: 100%;
         border-radius: 5px;
         box-shadow: none;
-        border: 2px solid #fff;
+        // border: 2px solid #fff;
+        border:0;
         margin: 0;
         z-index: 9;
-        background: #fff;
+        background: url(../images/industry_bg.png) no-repeat center center;
+        background-size: 100%;
         &.hover,&:checked,&:focus{
-          border:2px solid $primaryColor;
+          // border:2px solid $primaryColor;
+          background: url(../images/industry_bg2.png) no-repeat center center;
+          background-size: 100%;
           box-shadow: none;
+          border:0;
         }
       }
       span{
@@ -443,14 +471,15 @@ h3.title2{
         z-index: 10;
         color: #1c1b1a;
         text-align: center;
-        bottom: 12px;
+        bottom: 20px;
         width: 100%;
+        font-size: 1.125rem;
       }
       img{
         position: absolute;
         z-index: 10;
-        left: 20px;
-        top: 10px;
+        left: 30px;
+        top: 20px;
         @include screen('xs_mobile') {
           left: 15px;
         }
@@ -643,7 +672,7 @@ h3.title2{
         position: relative;
         background: #f8f6f0;
         display: flex;
-        flex:0 1 22%;
+        flex:0 1 19%;
         border-radius: 5px;
         padding: 6px 10px;
         margin-bottom: 24px;
@@ -654,20 +683,26 @@ h3.title2{
             display: none;
           }
         }
-        &:last-child:nth-child(4n - 1) {
-          margin-right: calc(22% + 12% / 3);
+        &:last-child:nth-child(5n - 1) {
+          margin-right: calc(19% + 5% / 4);
           @include screen('tablet') {
             margin-right: 0;
           }
         }
-        &:last-child:nth-child(4n - 2) {
-          margin-right: calc(44% + 12% / 3 * 2);
+        &:last-child:nth-child(5n - 2) {
+          margin-right: calc(38% + 5% / 4 * 2);
           @include screen('tablet') {
             margin-right: 0;
           }
         }
-        &:last-child:nth-child(4n - 3) {
-          margin-right: calc(66% +  12% / 3 * 3);
+        &:last-child:nth-child(5n - 3) {
+          margin-right: calc(57% +  5% / 4 * 3);
+          @include screen('tablet') {
+            margin-right: 0;
+          }
+        }
+        &:last-child:nth-child(5n - 4) {
+          margin-right: calc(76% +  5% / 4 * 4);
           @include screen('tablet') {
             margin-right: 0;
           }
@@ -676,22 +711,22 @@ h3.title2{
           flex:0 1 31%;
           margin-bottom: 1rem;
         }
-        &:last-child:nth-child(3n - 1) {
-          @include screen('tablet'){
-            margin-right: calc(31% + 7% / 2);
-          }
-          @include screen('mobile') {
-            margin-right: 0;
-          }
-        }
-        &:last-child:nth-child(3n - 2) {
-          @include screen('tablet'){
-            margin-right: calc(62% + 14% / 2);
-          }
-          @include screen('mobile') {
-            margin-right: 0;
-          }
-        }
+        // &:last-child:nth-child(3n - 1) {
+        //   @include screen('tablet'){
+        //     margin-right: calc(31% + 7% / 2);
+        //   }
+        //   @include screen('mobile') {
+        //     margin-right: 0;
+        //   }
+        // }
+        // &:last-child:nth-child(3n - 2) {
+        //   @include screen('tablet'){
+        //     margin-right: calc(62% + 14% / 2);
+        //   }
+        //   @include screen('mobile') {
+        //     margin-right: 0;
+        //   }
+        // }
         @include screen('mobile') {
           flex:0 1 100%;
           width: 100%;
@@ -892,7 +927,7 @@ h3.title2{
           padding: 0.5em 1em;
         }
         &.btn-delete{
-          background:#444;
+          background:#666;
         }
         &.btn-add{
           background: $thirdColor;
@@ -983,7 +1018,7 @@ h3.title2{
       .appliance_name{
         font-size: 1.125rem;
         color: #fff;
-        background: $thirdColor;
+        background: $fourColor;
         line-height: 52px;
         padding:0 22px;
         text-align: left; 
