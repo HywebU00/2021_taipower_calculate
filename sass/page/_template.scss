@@ -685,25 +685,25 @@ h3.title2{
         }
         &:last-child:nth-child(5n - 1) {
           margin-right: calc(19% + 5% / 4);
-          @include screen('tablet') {
+          @include screen('mobile') {
             margin-right: 0;
           }
         }
         &:last-child:nth-child(5n - 2) {
           margin-right: calc(38% + 5% / 4 * 2);
-          @include screen('tablet') {
+          @include screen('mobile') {
             margin-right: 0;
           }
         }
         &:last-child:nth-child(5n - 3) {
           margin-right: calc(57% +  5% / 4 * 3);
-          @include screen('tablet') {
+          @include screen('mobile') {
             margin-right: 0;
           }
         }
         &:last-child:nth-child(5n - 4) {
           margin-right: calc(76% +  5% / 4 * 4);
-          @include screen('tablet') {
+          @include screen('mobile') {
             margin-right: 0;
           }
         }
@@ -711,22 +711,22 @@ h3.title2{
           flex:0 1 31%;
           margin-bottom: 1rem;
         }
-        // &:last-child:nth-child(3n - 1) {
-        //   @include screen('tablet'){
-        //     margin-right: calc(31% + 7% / 2);
-        //   }
-        //   @include screen('mobile') {
-        //     margin-right: 0;
-        //   }
-        // }
-        // &:last-child:nth-child(3n - 2) {
-        //   @include screen('tablet'){
-        //     margin-right: calc(62% + 14% / 2);
-        //   }
-        //   @include screen('mobile') {
-        //     margin-right: 0;
-        //   }
-        // }
+        &:last-child:nth-child(3n - 1) {
+          @include screen('tablet'){
+            margin-right: calc(31% + 7% / 2);
+          }
+          @include screen('mobile') {
+            margin-right: 0;
+          }
+        }
+        &:last-child:nth-child(3n - 2) {
+          @include screen('tablet'){
+            margin-right: calc(62% + 14% / 2);
+          }
+          @include screen('mobile') {
+            margin-right: 0;
+          }
+        }
         @include screen('mobile') {
           flex:0 1 100%;
           width: 100%;
