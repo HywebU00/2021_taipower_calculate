@@ -13,15 +13,61 @@
   <!-- slick css-->
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.css" />
+  <!-- fancybox css-->
+  <link rel="stylesheet" type="text/css" href="vendor/facybox/dist/jquery.fancybox.min.css"/>
   <!-- hyUI css -->
   <link rel="stylesheet" type="text/css" href="css/taipower.css">
   <link rel="stylesheet" type="text/css" href="vendor/animate.css">
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <!-- favicon -->
   <link href="images/favicon.png" rel="icon" type="image/x-icon">
+  <style>
+  .un_summer span {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 14px;
+    color: #fff;
+    font-weight: bold;
+    background: #a8c172;
+    flex: 0 0 55px;
+}
+.summer span {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 14px;
+    color: #fff;
+    font-weight: bold;
+    background: #f4cc14;
+    flex: 0 0 55px;
+}
+.case_title span {
+    color: #5f7e3d;
+    font-weight: bold;
+}
+.un_summer {
+    color: #545454;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+.summer {
+    color: #545454;
+    display: flex;
+    align-items: center;
+}
+  </style>
 </head>
 
-<body class="noscroll">
+<body>
   <!-- 直接跳主內容區 -->
   <a class="goCenter" href="#center" tabindex="1">按Enter到主內容區</a>
   <!-- wrapper Start -->
@@ -38,32 +84,20 @@
         </noscript>
         <!-- menu Start -->
         <nav class="menu" role="navigation" aria-label="About page">
-          <ul>
+           <ul>
             <li><a href="#">來去計算</a>
               <ul>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
+                <li><a href="#">家庭快速試算</a></li>
+                <li><a href="#">家庭詳細試算</a></li>
+                <li><a href="#">商店快速試算</a></li>
+                <li><a href="#">商店詳細試算</a></li>
               </ul>
             </li>
-            <li><a href="http://www.google.com">案例分享</a></li>
-            <li><a href="http://www.google.com">懶人包圖表</a></li>
-            <li><a href="#">時段計算說明</a>
-              <ul>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="http://www.google.com">第二層有連結</a></li>
-                <li><a href="#">第二層選單</a></li>
-              </ul>
+            <li><a href="#gocase">案例分享</a></li>
+            <li><a href="#goimg">懶人包圖表</a></li>
+            <li><a href="#">時段計算說明</a>            
             </li>
-            <li><a href="#">立即申辦</a>
-              <ul>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-                <li><a href="#">第二層選單</a></li>
-              </ul>
+            <li><a href="https://wapp.taipower.com.tw/newnas/nawp3a1.aspx" target="_blank">立即申辦</a>
             </li>
           </ul>
         </nav>
@@ -83,11 +117,10 @@
           </h2>
           <div class="text wow fadeIn" data-wow-duration="1.2s">
             為反映尖峰、半尖峰、離峰不同時間的供電成本，<br>
-            因此訂定不同費率，尖峰時間電價最高，<br>
-            離峰時間最低，用電規模較大（例如每月超過700度）的用戶，<br>
-            建議可評估選用時間電價，藉由調整用電時間，<br>
-            將尖峰用電移轉至離峰時間使用，<br>
-            以達充分利用離峰電力與節省電費支出之目的。
+			因此依據不同用電時間訂定不同費率，尖峰時間電價最高，離峰時間最低。<br>
+			用電規模較大（例如每月超過700度）的用戶，建議可評估選用時間電價，<br>
+			藉由減少尖峰時間用電，或調整用電時間將尖峰用電移轉至離峰時間使用，<br>
+			以達充分利用離峰電力與節省電費支出之目的。<br>
           </div>
           <div class="circle wow flipInY" data-wow-duration="1.2s" data-wow-delay="2s"><img src="images/mp/circle.png" alt="不同時段電價不同"></div>
           <div class="count wow fadeIn" data-wow-duration="1.2s" data-wow-delay="2.5s">
@@ -99,16 +132,11 @@
       </section>
       <section class="message_block wow fadeInUp" data-wow-duration="1.2s">
         <div class="container">
-          <h2>推廣<span>訊息</span></h2>
-          <div class="text">
-            <a href="news.html" class="message_link">新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊新增標準型三段式時間電價資訊</a>
+          <h2>推廣<br>訊息</h2>
+          <div class="text">		  
+            <a href="#"  id="openModal" class="iframe">本公司於110年5月1日起，推出低壓住商標準型暨低壓電力3段式時間電價，高用電量用戶(平均每月4,000度以上)適合選用，尖峰時間僅6小時(13~17時、18~20時)。用戶藉由調整用電時間，將尖峰用電移轉至離峰時間使用，有助於節省電費支出。</a>
           </div>
-        </div>
-        <div class="message_box">
-          <h2>推廣訊息</h2>
-          <p>本公司於110年5月1日起，推出低壓住商標準型暨低壓電力3段式時間電價，高用電量用戶(平均每月4,000度以上)適合選用，尖峰時間僅6小時(13~17時、18~20時)。用戶藉由調整用電時間，將尖峰用電移轉至離峰時間使用，有助於節省電費支出。</p>
-          <a href="" class="close">關閉</a>
-        </div>
+        </div>		
       </section>
       <section class="price_block wow fadeInUp" data-wow-duration="1.2s">
         <div class="container">
@@ -116,33 +144,34 @@
           <div class="tabSet">
             <section class="tabs">
               <h3 class="tabItem active"><a href="#">住商型</a></h3>
-              <div class="tabContent">
-                <p>適用於每月用電度數700到4000度之住宅及每月用電度數900到4000度之小商店。</p>
+				<div class="tabContent">
+                <p>適合每月用電700度~4000度之住宅及1100度~4000度之小商店評估選用。</p>
                 <div class="price_pic">
                   <span class="price_date">107年 4月 1日起適用</span>
                   <span class="price_unit">單位：元</span>
                   <div class="price_title">二段式時間電價</div>
-                  <div class="price_table"><img src="images/mp/table1.jpg" alt=""></div>
+                  <div class="price_table"><img src="images/mp/tb/ET_K562.png" alt=""></div>
                 </div>
                 <div class="price_pic">
                   <span class="price_unit">單位：元</span>
                   <div class="price_title">三段式時間電價</div>
-                  <div class="price_table"><img src="images/mp/table2.jpg" alt=""></div>
+                  <div class="price_table"><img src="images/mp/tb/ET_K563.png" alt=""></div>
                 </div>
               </div>
               <h3 class="tabItem"><a href="#">標準型</a></h3>
               <div class="tabContent">
-                <p>適用於每月用電度數700到4000度之住宅及每月用電度數900到4000度之小商店。</p>
+                <p>適合每月用電超過4000度之住宅及小商店評估選用。</p>
                 <div class="price_pic">
                   <span class="price_date">107年 4月 1日起適用</span>
                   <span class="price_unit">單位：元</span>
                   <div class="price_title">二段式時間電價</div>
-                  <div class="price_table"><img src="images/mp/table1.jpg" alt=""></div>
+                  <div class="price_table"><img src="images/mp/tb/ET_F2.png" alt=""></div>
                 </div>
                 <div class="price_pic">
                   <span class="price_unit">單位：元</span>
                   <div class="price_title">三段式時間電價</div>
-                  <div class="price_table"><img src="images/mp/table2.jpg" alt=""></div>
+                  <div class="price_table"><img src="images/mp/tb/ET_F3.png" alt=""></div>
+				  <p>元旦(1/1)、春節(農曆除夕～初五)、和平紀念日(2/28)、兒童節(4/4)、民族掃墓節(4/4或4/5)、勞動節(5/1)、端午節(農曆5/5)、中秋節(農曆8/15)、國慶日(10/10)、以上日期全日電價皆按離峰時間計價。</p>
                 </div>
               </div>
             </section>
@@ -231,77 +260,79 @@
           </div>
         </div>  
       </section>
-      <section class="case_block">
+      <div class="case_block">
         <div class="container">
-          <h2 class="block_title">案例分享</h2>
+          <h2 class="block_title">個案分析</h2>
           <div class="case_slider wow fadeInUp" data-wow-duration="1.2s">
             <ul>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>楊媽媽於107年4月選用二段式住商型簡易時間電價，單月可節省約210元電費...<em>看更多</em></div>
-                  <div class="un_summer"><span>非夏月</span>移轉尖峰用電80度，單月節省約200元...</div>
-                  <div class="summer"><span>夏月</span>單月可節省約210元電費...</div>
+                <a href="#caseModal1" title="" id="openCaseModal1">
+                  <div class="case_title"><span>家庭 </span>   某住宅選用二段式住商型簡易時間電價，藉由調整用電器具使用時間.....</div>
+                  <div class="un_summer"><span>非夏月</span>單月可節省約200元電費</div>
+                  <div class="summer"><span>夏月</span>單月可節省約211元電費</div>
                 </a>
               </li>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>三段式住商型簡易時間電價，從尖峰移轉至離峰，則可節省約1,060元電費.....<em>看更多</em></div>
+                <a  title="" id="openCaseModal2">
+                  <div class="case_title"><span>服飾業 </span>某服飾店選用三段式住商型簡易時間電價，營業時間為上午11點到晚上9點.....</div>
+                  <div class="un_summer"><span>非夏月</span>將用電由半尖峰時間移轉至離峰，單月可節省約417元電費</div>
+                  <div class="summer"><span>夏月</span>將用電由尖峰時間移轉至半尖峰，單月可節省約413元電費。</div>
+                </a>
+              </li>
+              <li>
+                <a href="#caseModal3" title="" id="openCaseModal3">
+                  <div class="case_title"><span>餐飲業</span>某餐廳選用二段式標準型時間電價，營業時間為上午11點開店.....</div>
+                  <div class="un_summer"><span>非夏月</span>單月可節省約543元電費</div>
+                  <div class="summer"><span>夏月</span>單月可節省約549元電費</div>
+                </a>
+              </li>
+              <li>
+                <a href="#caseModal4" title="" id="openCaseModal4">
+                  <div class="case_title"><span>美髮業</span>
+					某美髮店選用三段式標準型時間電價，營業時間為上午11點到晚上9點.....
+					</div>
+                  <div class="un_summer"><span>非夏月</span>將用電由半尖峰時間移轉至離峰，單月可節省約352元電費</div>
+                  <div class="summer"><span>夏月</span>將用電由尖峰時間移轉至半尖峰，單月可節省約400元電費。</div>
+                </a>
+              </li>
+              <li>
+                <a href="#" title="">
+                  <div class="case_title">三段式住商型簡易時間電價，從尖峰移轉至離峰，則可節省約<span>1,060</span>元電費.....</div>
                   <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約520元...</div>
                   <div class="summer"><span>夏月</span>可節省約550元電費...</div>
                 </a>
               </li>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約1,746元......<em>看更多</em></div>
+                <a href="#" title="">
+                  <div class="case_title">某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約<span>1,746</span>元......</div>
                   <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約1,746...</div>
                   <div class="summer"><span>夏月</span>可節省約550元電費...</div>
                 </a>
               </li>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>楊媽媽於107年4月選用二段式住商型簡易時間電價，單月可節省約210元電費...<em>看更多</em></div>
+                <a href="#" title="">
+                  <div class="case_title">某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約<span>1,746</span>元......</div>
+                  <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約1,746...</div>
+                  <div class="summer"><span>夏月</span>可節省約550元電費...</div>
+                </a>
+              </li>
+              <li>
+                <a href="#" title="">
+                  <div class="case_title">楊媽媽於107年4月選用二段式住商型簡易時間電價，單月可節省約<span>210</span>元電費...</div>
                   <div class="un_summer"><span>非夏月</span>移轉尖峰用電80度，單月節省約200元...</div>
                   <div class="summer"><span>夏月</span>單月可節省約210元電費...</div>
                 </a>
               </li>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>三段式住商型簡易時間電價，從尖峰移轉至離峰，則可節省約1,060元電費.....<em>看更多</em></div>
+                <a href="#" title="">
+                  <div class="case_title">三段式住商型簡易時間電價，從尖峰移轉至離峰，則可節省約<span>1,060</span>元電費.....</div>
                   <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約520元...</div>
                   <div class="summer"><span>夏月</span>可節省約550元電費...</div>
                 </a>
               </li>
               <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約1,746元......<em>看更多</em></div>
-                  <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約1,746...</div>
-                  <div class="summer"><span>夏月</span>可節省約550元電費...</div>
-                </a>
-              </li>
-              <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約1,746元......<em>看更多</em></div>
-                  <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約1,746...</div>
-                  <div class="summer"><span>夏月</span>可節省約550元電費...</div>
-                </a>
-              </li>
-              <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>楊媽媽於107年4月選用二段式住商型簡易時間電價，單月可節省約210元電費...<em>看更多</em></div>
-                  <div class="un_summer"><span>非夏月</span>移轉尖峰用電80度，單月節省約200元...</div>
-                  <div class="summer"><span>夏月</span>單月可節省約210元電費...</div>
-                </a>
-              </li>
-              <li>
-                <a href="case.html" title="">
-                  <div class="case_title"><span>服飾業</span>三段式住商型簡易時間電價，從尖峰移轉至離峰，則可節省約1,060元電費.....<em>看更多</em></div>
-                  <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約520元...</div>
-                  <div class="summer"><span>夏月</span>可節省約550元電費...</div>
-                </a>
-              </li>
-              <li>
-                <a href="case.html" title="" class="case_link">
-                  <div class="case_title"><span>服飾業</span>某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約1,746元...... <em>看更多</em></div>
+                <a href="#" title="">
+                  <div class="case_title">某工廠選用低壓電力時間電價於 5 月 (非夏月) 移轉尖峰用電節省約<span>1,746</span>元......</div>
                   <div class="un_summer"><span>非夏月</span>移轉半尖峰用電240度，單月節省約1,746...</div>
                   <div class="summer"><span>夏月</span>可節省約550元電費...</div>
                 </a>
@@ -309,15 +340,9 @@
             </ul>
             <div class="case_controls"></div>
           </div>
-          <div class="case_box">
-            <h2>案例分享</h2>
-            <div class="case_title"><span>服飾業</span>某服飾店選用三段式住商型簡易時間電價，營業時間為上午11點到晚上9點，藉由調整用電器具使用時間(如：營業時間顧客較少時，將冷氣調成送風模式或關閉，並搭配循環風扇增加冷房效果；或是顧客試穿過的衣物於營業時間不進行熨燙整理，於下午5點後或隔日上午10點前，再將需熨燙之衣物使用電熨斗一次整理完畢)，移轉尖峰用電194度。....</div>
-            <div class="un_summer"><span>非夏月</span>移轉尖峰用電80度，單月節省約200元...</div>
-            <div class="summer"><span>夏月</span>單月可節省約210元電費...</div>
-            <a href="" class="close">關閉</a>
-          </div>
         </div>
-      </section>
+      </div>
+	  <!--視窗-->
     </div>
     <!-- footer Start-->
     <footer>
@@ -367,11 +392,13 @@
   <script src="vendor/lazyload/lazyload.js"></script><!-- lazyload -->
   <script src="vendor/picturefill/picturefill.min.js" async></script><!-- picturefill -->
   <script src="vendor/scrolltable/jquery.scroltable.min.js"></script><!-- scrolltable -->
+  <script src="vendor/facybox/dist/jquery.fancybox.min.js"></script>
   <!-- hyUI -->
   <script src="js/hyui.js"></script>
   <!-- 客製js -->
   <script src="js/customize.js"></script>
   <script src="vendor/wow.min.js"></script>
+  
   <script>
     wow = new WOW(
     {
@@ -384,6 +411,69 @@
     )
     wow.init();
   </script>
+  <script>
+    $(document).ready(function() {
+      $(".iframe").fancybox({
+        'width'       : '75%',
+        'height'      : '75%',
+        'autoScale'       : false,
+        'transitionIn'    : 'none',
+        'transitionOut'   : 'none',
+        'type'        : 'iframe'
+      });
+    });
+	
+	/*-----------------------------------*/
+/////////////modal設定/////////////
+/*-----------------------------------*/
+$(function() {
+    $('#msgModal').hide();                                                                //先隱藏視窗
+    $('.modal').after('<div class="modal_overlay"></div>');                             //新增透明底
+    $('.modal').prepend('<button type="button" class="close">關閉</button>');           //新增關閉按鈕
+    $('.modal_overlay').hide();                                                         //隱藏透明底
+    //按鈕動作
+    $('#openModal__').click(function(e) {
+        $('.modal_overlay').fadeIn(100);
+        $('.modal').fadeIn(100);
+        $('body').addClass('noscroll');
+        e.preventDefault();
+    });
+    //關閉function
+    function closeModal(){
+        
+		$('.modal_overlay').hide();
+        $('body').removeClass('noscroll');
+    }
+    //點選關閉按鈕及透明底都可關閉
+    $('.modal_overlay').click(closeModal);
+    $('.modal .close').click(closeModal);
+	
+	
+
+	//按鈕動作
+    $('#openCaseModal1').click(function(e) {
+        $('.modal_overlay').fadeIn(100);
+        $('.modal').fadeIn(100);
+        $('body').addClass('noscroll');
+        e.preventDefault();
+    });
+
+	$('#openCaseModal2').click(function(e) {
+			Swal.fire({
+			  title: "<i>個案分析</i>", 
+			  html: '<div class="case_title"><span>服飾業 </span>某服飾店選用三段式住商型簡易時間電價，營業時間為上午11點到晚上9點，藉由調整用電器具使用時間(如：營業時間顧客較少時，將冷氣調成送風模式或關閉，並搭配循環風扇增加冷房效果；或是顧客試穿過的衣物於營業時間不進行熨燙整理，於下午5點後或隔日上午10點前，再將需熨燙之衣物使用電熨斗一次整理完畢)，移轉尖峰用電194度。</div><div class="un_summer"><span>非夏月</span>將用電由半尖峰時間移轉至離峰，單月可節省約417元電費</div><div class="summer"><span>夏月</span>1.將用電由尖峰時間移轉至半尖峰，單月可節省約413元電費。<br>2.倘將用電由尖峰時間移轉至離峰，單月可節省約854元電費。',  
+			  confirmButtonText: "<u>我了解</u>"
+		});		
+});
+$('#openModal').click(function(e) {
+			Swal.fire({
+			  title: "<i>推廣訊息</i>", 
+			  html: '<p>本公司於110年5月1日起，推出低壓住商標準型暨低壓電力3段式時間電價，高用電量用戶(平均每月4,000度以上)適合選用，尖峰時間僅6小時(13~17時、18~20時)。用戶藉由調整用電時間，將尖峰用電移轉至離峰時間使用，有助於節省電費支出。</p>',  
+			  confirmButtonText: "<u>我了解</u>"
+		});
+		});
+});
+  </script>  
 </body>
 
 </html>
