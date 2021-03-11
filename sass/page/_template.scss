@@ -32,7 +32,15 @@ input::-ms-check {
         filter: alpha(opacity=0);
         /* Good browsers :) */
         opacity:0;
+
       }
+      input{
+        margin:0;padding:0;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+      }
+
 // 最外圍預設為100%
 .wrapper {
   margin: 0px auto;
