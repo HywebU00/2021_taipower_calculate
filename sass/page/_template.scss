@@ -422,10 +422,11 @@ h3.title2{
         flex-basis: 100%;
       }
       input[type="text"],input[type="number"]{
-        line-height: 24px;
+        line-height: 40px;
         border: 1px solid #e9ddbf;
         margin: 0;
         width: 80%;
+        padding: 0 .5rem;
         ~span{
           margin-left: .5rem;
           vertical-align: middle;
