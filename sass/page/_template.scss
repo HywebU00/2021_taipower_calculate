@@ -541,6 +541,20 @@ h3.title2{
         @include screen('mobile') {
           padding: 0 30px;
         }
+        &.btn-add{
+          background: #46afb2;
+          color: #fff;
+          &:hover, &:focus {
+            background: darken(#46afb2, 10);
+            cursor: pointer;
+            color: #FFF;
+            outline:none;
+          }
+          &.active {
+            background: lighten(#46afb2, 5);
+            cursor: pointer;
+          }
+        }
         &:hover{
           border:0;
         }
@@ -887,18 +901,29 @@ h3.title2{
         padding: 0 .5rem;
         margin-left: .5rem;
       }
-      ~.btn-add{
+      ~.btn-delete{
         margin-left: 1em!important;
         line-height: 42px!important;
-        padding: 0 40px!important;
-        color: #fff;
-        background:$thirdColor;
+        padding: 0 20px!important;
+        background:#f8f6f0;
+        box-shadow: 0 0 8px rgba(39,29,4,.1);
         font-size: 1rem;
         border:0;
         position: absolute;
         right: 20px;
         top: 20px;
         margin: 0;
+        vertical-align: middle;
+        &:before{
+          content: "";
+          width: 16px;
+          height: 18px;
+          display: inline-block;
+          background:url(../images/icon/icon_trash.svg) no-repeat 0 0;
+          background-size: 16px;
+          vertical-align: middle;
+          margin-right: 6px;
+        }
         @include screen('mobile') {
           position: relative;
           right: auto;
@@ -907,7 +932,14 @@ h3.title2{
           padding: 0 20px !important;
         }
         &:hover,&:focus{
-          background: $fourColor;
+          color: #fff;
+          background: $primaryColor;
+          box-shadow: none;
+          &:before{
+            content: "";
+            background:url(../images/icon/icon_trash2.svg) no-repeat 0 0;
+            background-size: 14px;
+          }
         }
       }
     }
