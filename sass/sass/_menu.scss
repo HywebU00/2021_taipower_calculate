@@ -68,7 +68,7 @@
         display: none;
         overflow: visible;
         // width: 99%;
-        width: 120px;
+        width: 200px;
         background: rgba(0, 0, 0, .8);
         padding: 0;
         z-index: 999999;
@@ -243,7 +243,7 @@
                 display: block;
                 min-height: 1.5em;
                 line-height: 1.5em;
-                padding: .5em 1em .5em 2em !important;
+                padding: .5em 1em .5em 1em !important;
                 background: #eee;
                 &:hover,
                 &:focus {
