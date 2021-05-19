@@ -579,15 +579,15 @@
 					margin: 10px 0;
 					a{
 						display: block;
-						background: #fff url(../images/mp/case_bg2.jpg) no-repeat center bottom;
-						background-size: 100%;
+						background: #fff;
 						border-radius: 6px;
-						padding: 20px 20px 75px 20px;
+						padding: 20px 20px 110px 20px;
 						box-shadow: 0 0 5px rgba(53,54,51,0.1);
 						height: 100%;
 						transform-origin: 0 100%;
 						transform: scale(1);
 						transition:1s all;
+						position: relative;
 						&:hover{
 							transform: scale(1.02);
 							@include screen('mobile') {
@@ -644,6 +644,20 @@
 								flex:0 0 55px;
 							}
 						}
+						.casePic{
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							right: 0;
+							display: block;
+							overflow: hidden;
+							width: 100%;
+							border-radius: 0 0 6px 6px;
+							img{
+								object-fit: contain;
+								width: 100%;
+							}
+						}
 					}
 					&.slick-current{
 						z-index: 999;
@@ -661,12 +675,6 @@
 								// 	transform: scale(1);
 								// }
 							}
-						}
-					}
-					&:nth-child(2n){
-						a{
-							background: #fff url(../images/mp/case_bg4.jpg) no-repeat center bottom;
-							background-size: 100%;
 						}
 					}
 				}
@@ -785,6 +793,7 @@
 				flex:0 0 55px;
 			}
 		}
+		
 		p{
 			text-align: justify;
 			margin-top: 0;
